@@ -220,7 +220,7 @@ public class UserService implements UserInterface {
     }
     @Override
     public List<UserEntity> getAllusers() {
-        return List.of();
+        return userRepo.findAll();
     }
 
 

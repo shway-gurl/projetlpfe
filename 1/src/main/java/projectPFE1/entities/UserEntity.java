@@ -105,14 +105,14 @@ public class UserEntity {
     }
 
     // Many-to-One: One Customer → Many TransportRequests
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TransportRequest> transportRequestsAsCustomer;
 
     // Many-to-One: One Transporter → Many TransportRequests
-    @OneToMany(mappedBy = "transporter", cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany(mappedBy = "transporter", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TransportRequest> transportRequestsAsTransporter;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<TransportPosting> transportPostings = new ArrayList<>();
 
     @ManyToMany

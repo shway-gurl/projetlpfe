@@ -15,4 +15,5 @@ public interface UserInterface {
     public List<UserEntity> getAllusers();
     UserEntity getUser(Long id);
     UserEntity getUserSummary(Long userId);
+
 }

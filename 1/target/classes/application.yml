@@ -1,0 +1,52 @@
+server:
+  servlet:
+    context-path: /api
+  port: 8081
+
+lombok:
+  addLombokGeneratedAnnotation: true
+
+ors:
+  api:
+    key: "5b3ce3597851110001cf6248a8458ca51d734e4baf8eca543a72267c"
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/TSP?createDatabaseIfNotExist=true
+    username: root
+    password: wubbalubbadubdub
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      client:
+        registration:
+          mathalan:
+            clientId: mathalan
+            clientSecret: vP8xx2gB2LCpRduiNvXj8hQ1ca2K1tge
+            provider: keycloak
+            scope:
+              - openid
+              - profile
+              - email
+            authorizationGrantType:
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/master/
+            authorization-uri: http://localhost:8080/realms/master/protocol/openid-connect/auth
+            token-uri: http://localhost:8080/realms/master/protocol/openid-connect/token
+            user-info-uri: http://localhost:8080/realms/master/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8080/realms/master/protocol/openid-connect/certs
+access:
+  control:
+    origin: http://localhost:4200
+
+logging:
+  level:
+    org.springframework.security: trace
+
+
+
+

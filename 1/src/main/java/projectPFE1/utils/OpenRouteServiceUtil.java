@@ -13,7 +13,7 @@ import java.util.Map;
 @Component
 public class OpenRouteServiceUtil {
 
-    @Value("${ors.api.key}") // Inject the API key from application.properties
+    @Value("${ors.api.key}") // Inject the API key from application.yml
     private String orsApiKey;
 
     private static final String ORS_GEOCODE_URL = "https://api.openrouteservice.org/geocode/autocomplete";

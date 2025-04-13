@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import projectPFE1.entities.Proposal;
 import projectPFE1.entities.UserEntity;
 import projectPFE1.repository.UserRepo;
 import projectPFE1.services.UserInterface;
@@ -82,5 +83,11 @@ public class UserController {
     @PutMapping("/updateUser/{id}")
     public UserEntity updateuser(@PathVariable("id")Long id,@RequestBody UserEntity user)
     {return userInterface.updateUser(id,user);}
+
+    //Get all users
+    @GetMapping("/getAllusers")
+    public List<UserEntity> getAllUsers() {
+        return userInterface.getAllusers();
+    }
 
 }
